@@ -7,10 +7,28 @@ const list = document.getElementById("problemList");
 const weakDiv = document.getElementById("weakAreas");
 
 const patterns = [
-    "Sliding Window","Two Pointers","Binary Search",
-    "Recursion","Backtracking","Greedy",
-    "DP","Graph","Tree","Heap","Trie"
+    "Sliding Window",
+    "Two Pointers",
+    "Binary Search",
+    "Recursion",
+    "Backtracking",
+    "Greedy",
+    "DP",
+    "Graph",
+    "Tree",
+    "Heap",
+    "Trie",
+    "Stack",
+    "Queue",
+    "Bit Manipulation",
+    "Math",
+    "Linked List",
+    "Prefix Sum",
+    "Monotonic Stack",
+    "String",
+    "Hash Table"
 ];
+
 
 function saveData() {
     localStorage.setItem("problems", JSON.stringify(problems));
@@ -94,6 +112,24 @@ function updateStats() {
         ? badges.join(" | ")
         : "Start solving to earn achievements!";
 }
+
+function populatePatterns() {
+    const patternSelect = document.getElementById("pattern");
+    const filterSelect = document.getElementById("filterPattern");
+
+    patterns.forEach(p => {
+        const option1 = document.createElement("option");
+        option1.value = p;
+        option1.textContent = p;
+        patternSelect.appendChild(option1);
+
+        const option2 = document.createElement("option");
+        option2.value = p;
+        option2.textContent = p;
+        filterSelect.appendChild(option2);
+    });
+}
+
 
 let chart;
 
@@ -199,4 +235,5 @@ document.getElementById("darkToggle").addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
 
+populatePatterns();
 renderProblems();
