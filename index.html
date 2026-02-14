@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interview Pattern Mastery Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Interview Pattern Mastery</h1>
+        <div class="stats-bar">
+    <div>Total Problems: <span id="totalCount">0</span></div>
+    </div>
+    <button id="darkToggle">🌙</button>
+    </div>
+
+    <div class="card form-card">
+        <form id="problemForm">
+            <input type="text" id="title" placeholder="Problem Title" required>
+
+            <select id="pattern" required>
+                <option value="">Select Pattern</option>
+                <option>Sliding Window</option>
+                <option>Two Pointers</option>
+                <option>Binary Search</option>
+                <option>Recursion</option>
+                <option>Backtracking</option>
+                <option>Greedy</option>
+                <option>DP</option>
+                <option>Graph</option>
+                <option>Tree</option>
+                <option>Heap</option>
+                <option>Trie</option>
+            </select>
+
+            <select id="difficulty" required>
+                <option value="">Difficulty</option>
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+            </select>
+
+            <button type="submit" class="primary-btn">Add</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Solved Problems</h2>
+        <select id="filterPattern">
+    <option value="All">All Patterns</option>
+    <option>Sliding Window</option>
+    <option>Two Pointers</option>
+    <option>Binary Search</option>
+    <option>Recursion</option>
+    <option>Backtracking</option>
+    <option>Greedy</option>
+    <option>DP</option>
+    <option>Graph</option>
+    <option>Tree</option>
+    <option>Heap</option>
+    <option>Trie</option>
+     </select>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Pattern</th>
+                    <th>Difficulty</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="problemList"></tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Mastery Overview</h2>
+        <canvas id="patternChart"></canvas>
+    </div>
+    
+    
+    <div class="card">
+        <h2>Weak Areas</h2>
+        <div id="weakAreas" class="weak-box"></div>
+    </div>
+    
+        <div class="card">
+        <h2>Achievements</h2>
+        <div id="achievements"></div>
+        </div>
+    
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
