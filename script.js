@@ -91,7 +91,8 @@ function updateStats() {
     });
 
     patterns.forEach(p => {
-        mastery[p] = Math.min((mastery[p] / 30) * 100, 100);
+        const target = 30; 
+        mastery[p] = Math.min((mastery[p] / target) * 100, 100);
         if (mastery[p] < 40 && mastery[p] > 0 ) weak.push(p);
     });
 
@@ -132,33 +133,6 @@ function populatePatterns() {
 
 
 let chart;
-
-// function renderChart(data) {
-//     const ctx = document.getElementById("patternChart");
-
-//     if (chart) chart.destroy();
-
-//     chart = new Chart(ctx, {
-//         type: 'bar',
-//         data: {
-//             labels: Object.keys(data),
-//            datasets: [{
-//                     label: 'Mastery %',
-//                     data: Object.values(data),
-//                     borderRadius: 8
-//                      }]
-//                     },
-//         options: {
-//             scales: {
-//                 y: {
-//                     beginAtZero: true,
-//                     max: 100
-//                 }
-//             }
-//         }
-//     });
-// }
-
 function renderChart(data) {
     const ctx = document.getElementById("patternChart").getContext("2d");
 
@@ -237,3 +211,11 @@ document.getElementById("darkToggle").addEventListener("click", () => {
 
 populatePatterns();
 renderProblems();
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker Registered"))
+      .catch(err => console.log("Service Worker Error:", err));
+  });
+}
